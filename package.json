@@ -1,0 +1,43 @@
+{
+  "name": "yui",
+  "version": "0.0.1",
+  "description": "Electron製のYouTubeプレイヤー「結衣」",
+  "main": "src/bin/js/bin.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "gulp",
+    "watch": "gulp watch",
+    "package:mac": "electron-packager . 結衣 --out=__release__ --platform=darwin --arch=x64 --icon=icons/icon.icns --overwrite",
+    "package:win": "electron-packager . 結衣 --out=__release__ --platform=win32 --arch=x64 --icon=icons/icon.ico --overwrite",
+    "package:linux": "electron-packager . 結衣 --out=__release__ --platform=linux --arch=x64 --icon=icons/icon.icns --overwrite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuki540net/yui.git"
+  },
+  "keywords": [
+    "Electron",
+    "yui",
+    "YouTube"
+  ],
+  "author": "yuki540",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuki540net/yui/issues"
+  },
+  "homepage": "https://github.com/yuki540net/yui#readme",
+  "dependencies": {
+    "coffee-script": "^1.12.5",
+    "electron": "^1.6.6",
+    "express": "^4.15.2",
+    "riot": "^3.4.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.4",
+    "gulp-jade": "^1.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-riot": "^1.1.1",
+    "gulp-uglify": "^2.1.2"
+  }
+}
