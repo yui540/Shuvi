@@ -1,0 +1,8 @@
+{
+	"width"       : 450,
+	"height"      : 300,
+	"minWidth"    : 400,
+	"minHeight"   : 250,
+	"frame"       : false,
+	"transparent" : true
+}
