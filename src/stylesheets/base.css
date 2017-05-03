@@ -9,6 +9,10 @@ html, body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -webkit-app-region: drag;
+  background-image: url(../images/bg.png);
+  background-size: auto 25%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 body {
@@ -44,3 +48,10 @@ input, textarea {
 iframe {
 	border: none;
 }
+
+#player {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+

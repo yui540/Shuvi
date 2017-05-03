@@ -1,4 +1,5 @@
-top.player   = null
+top.load     = false
+top.youtube  = require './youtube'
 top.riot     = require 'riot'
 top.observer = riot.observable()
 
@@ -22,7 +23,7 @@ window.addEventListener 'resize', ->
 		width  : width
 		height : height
 
-	player.setSize width, height
+	youtube.resize width, height
 
 # player ready ------------------------------------------------
 top.onPlayerReady = (e) ->
@@ -30,13 +31,5 @@ top.onPlayerReady = (e) ->
 
 # API ready ----------------------------------------------------
 top.onYouTubeIframeAPIReady = ->
-	width  = window.innerWidth
-	height = window.innerHeight
-
-	top.player = new YT.Player 'player', {
-		width   : width
-		height  : height
-		videoId : 'HQlfjRO3JbY'
-		events  : { onReady: onPlayerReady }
-	}
+	top.load = true
 
