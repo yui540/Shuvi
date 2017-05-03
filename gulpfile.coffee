@@ -6,7 +6,7 @@ jade    = require 'gulp-jade'
 plumber = require 'gulp-plumber'
 
 gulp.task 'riot', ->
-	gulp.task 'src/scripts/component/tag/*.tag'
+	gulp.src 'src/scripts/component/tag/*.tag'
 		.pipe plumber()
 		.pipe riot
 			compact  : true
@@ -15,7 +15,7 @@ gulp.task 'riot', ->
 		.pipe gulp.dest 'src/scripts/component/js'
 
 gulp.task 'jade', ['riot'], ->
-	gulp.task 'src/views/jade/*.jade'
+	gulp.src 'src/views/jade/*.jade'
 		.pipe plumber()
 		.pipe jade()
 		.pipe gulp.dest 'src/views/html'
