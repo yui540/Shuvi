@@ -1,5 +1,6 @@
 class YouTube
 	constructor: ->
+		@timer  = null
 		@load   = false
 		@player = null
 
@@ -15,19 +16,23 @@ class YouTube
 			width   : width
 			height  : height
 			videoId : id
-			events  : { 
+			events  : {
 				onReady: (e) =>
 					@load = true
 			}
 		}
+		@change id
 
 	##
 	# 動画の変更
 	# @param id : 動画ID
 	##
 	change: (id) ->
+		@load      = false
+		url1       = 'https://www.youtube.com/embed/'
+		url2       = '?enablejsapi=1&widgetid=1&controls=0&loop=1&showinfo=0'
 		iframe     = document.getElementById 'player'
-		iframe.src = 'https://www.youtube.com/embed/' + id + '?enablejsapi=1&widgetid=1&controls=0&loop=1&showinfo=0'
+		iframe.src = url1 + id + url2
 
 	##
 	# 画面サイズ変更
@@ -43,13 +48,76 @@ class YouTube
 	# @return id
 	##
 	getId: (url) ->
-		match = url.match(/v=.*/)
+		match = url.match /v=.*/
 		if not match
 			return false
 
-		match = match[0].split('&')
+		match = match[0].split '&'
 		id    = match[0].replace /^v=/, ''
 
 		return id
+
+	##
+	# 再生
+	##
+	play: ->
+		@player.playVideo()
+		observer.trigger 'play'
+
+		@timer = setInterval =>
+			observer.trigger 'seek'
+		, 500
+
+	##
+	# 停止
+	##
+	pause: ->
+		@player.pauseVideo()
+		observer.trigger 'pause'
+
+	##
+	# 移動
+	# @param per : 0~1
+	##
+	seek: (per) ->
+		duration = @duration()
+		current  = duration * per
+
+		@player.seekTo current
+
+	##
+	# 動画時間
+	# @return duration
+	##
+	duration: ->
+		return @player.getDuration()
+
+	##
+	# 現在時間
+	# @return current
+	##
+	current: ->
+		return @player.getCurrentTime()
+
+	##
+	# 読み込み状況
+	# @return buffer
+	##
+	buffer: ->
+		return @player.getVideoLoadedFraction()
+
+	##
+	# 音量の取得
+	# @return volume
+	##
+	getVolume: ->
+		return @player.getVolume()
+
+	##
+	# 音量の設定
+	# @param volume : 0~100
+	##
+	setVolume: (volume) ->
+		@player.setVolume volume
 	
 module.exports = new YouTube()

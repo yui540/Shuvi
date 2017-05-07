@@ -4,6 +4,9 @@ top.riot     = require 'riot'
 top.observer = riot.observable()
 
 require './component/js/application'
+require './component/js/controls'
+require './component/js/seek'
+require './component/js/play'
 
 # load ---------------------------------------------------------
 window.addEventListener 'load', ->
@@ -13,6 +16,9 @@ window.addEventListener 'load', ->
 	riot.mount 'application', 
 		width  : width
 		height : height
+
+	init()
+	youtube.set localStorage['id']
 
 # resize -------------------------------------------------------
 window.addEventListener 'resize', ->
@@ -32,4 +38,11 @@ top.onPlayerReady = (e) ->
 # API ready ----------------------------------------------------
 top.onYouTubeIframeAPIReady = ->
 	top.load = true
+
+##
+# 初期化
+##
+top.init = ->
+	if not localStorage['id']
+		localStorage['id'] = 'MGt25mv4-2Q'
 

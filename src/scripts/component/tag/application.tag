@@ -1,7 +1,10 @@
 application(
 	style="width:{ width }px;height:{ height }px"
 )
-	div#player
+	controls(
+		width="{ width }"
+		height="{ height }"
+	)
 
 	style(scoped).
 		:scope {
@@ -24,5 +27,3 @@ application(
 			@width  = params.width
 			@height = params.height
 			@update()
-
-		#&controls=0&loop=1&showinfo=0
