@@ -7,6 +7,8 @@ require './component/js/application'
 require './component/js/controls'
 require './component/js/seek'
 require './component/js/play'
+require './component/js/info'
+require './component/js/volume'
 
 # load ---------------------------------------------------------
 window.addEventListener 'load', ->
@@ -18,7 +20,7 @@ window.addEventListener 'load', ->
 		height : height
 
 	init()
-	youtube.set localStorage['id']
+	youtube.set 'GtMCKw_7xyg'
 
 # resize -------------------------------------------------------
 window.addEventListener 'resize', ->

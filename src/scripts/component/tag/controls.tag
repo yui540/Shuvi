@@ -15,6 +15,7 @@ controls(
 			box-shadow: 0 0 5px #555;
 			border-radius: 5px;
 			box-sizing: border-box;
+			-webkit-app-region: no-drag;
 		}
 
 	script(type="coffee").

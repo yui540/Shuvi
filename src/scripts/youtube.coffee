@@ -19,6 +19,7 @@ class YouTube
 			events  : {
 				onReady: (e) =>
 					@load = true
+					observer.trigger 'load'
 			}
 		}
 		@change id
@@ -66,7 +67,7 @@ class YouTube
 
 		@timer = setInterval =>
 			observer.trigger 'seek'
-		, 500
+		, 100
 
 	##
 	# 停止
@@ -74,6 +75,8 @@ class YouTube
 	pause: ->
 		@player.pauseVideo()
 		observer.trigger 'pause'
+
+		clearInterval @timer
 
 	##
 	# 移動

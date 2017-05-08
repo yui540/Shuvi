@@ -1,9 +1,9 @@
 seek
 	div.current { current }
 	div.seek
-		div.load
-		div.bar
-		div.picker
+		div.load(style="width:{ load * 100 }%")
+		div.bar(style="width:{ bar * 100 }%")
+		div.picker(style="left:{ pic }px")
 	div.duration { duration }
 
 	style(scoped).
@@ -22,7 +22,7 @@ seek
 		:scope .current,
 		:scope .duration {
 			float: left;
-			width: 40px;
+			width: 50px;
 			height: 20px;
 			font-size: 10px;
 			color: #ccc;
@@ -33,7 +33,7 @@ seek
 		:scope .seek {
 			position: relative;
 			float: left;
-			width: 330px;
+			width: 310px;
 			height: 5px;
 			background-color: #4c4c4c;
 			margin-top: 7.5px;
@@ -42,7 +42,6 @@ seek
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: 20%;
 			height: 5px;
 			background-color: #E27171;
 		}
@@ -50,15 +49,90 @@ seek
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: 30%;
 			height: 5px;
 			background-color: #777;
+		}
+		:scope .seek .picker {
+			position: absolute;
+			top: -6.5px;
+			width: 8px;
+			height: 20px;
+			background-color: #E27171;
+			border-radius: 2px;
+			transition: all 0.3s ease 0s;
+			cursor: pointer;
+		}
+		:scope .seek .picker:hover {
+			transform: scale(1.2);
 		}
 
 	script(type="coffee").
 
+		##
+		# 時間の変換
+		# @param time : 時間
+		# @return str
+		##
+		@castTime = (time) ->
+			# 秒
+			str = parseInt time % 60
+			str = @strTime str
+
+			# 分
+			seconds = parseInt time / 60
+			seconds = @strTime seconds
+			str     = seconds + ':' + str
+
+			# 時
+			if (time / 3600) >= 1
+				hours = parseInt time / 3600
+				hours = @strTime hours
+				str   = hours + ':' + str
+
+			return str
+
+		##
+		# 文字列化
+		##	
+		@strTime = (time) ->
+			if time >= 60
+				time -= 60
+
+			if time < 10
+				return '0' + time
+			else
+				return time
+
+		##
+		# シークバーの更新
+		##
+		@reload = ->
+			buffer   = youtube.buffer()
+			current  = youtube.current()
+			duration = youtube.duration()
+
+			@current  = @castTime current
+			@duration = @castTime duration
+			@load     = buffer
+			@bar      = current / duration
+			@pic      = 302 * @bar
+
+			@update()
+
 		# mount ---------------------------------------------
 		@on 'mount', ->
+			@load     = 0
+			@bar      = 0
+			@pic      = 0
 			@current  = '0:00'
 			@duration = '0:00'
 			@update()
+
+		# load ----------------------------------------------
+		observer.on 'load', =>
+			@reload()
+
+		# seek ----------------------------------------------
+		observer.on 'seek', =>
+			@reload()
+

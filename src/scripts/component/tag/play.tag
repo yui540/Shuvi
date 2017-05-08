@@ -1,5 +1,7 @@
 play
 	div.btn(onclick="{ onPlay }")
+	info
+	volume
 
 	style(scoped).
 		:scope {
@@ -24,15 +26,26 @@ play
 			background-repeat: no-repeat;
 			background-color: #444;
 			border-radius: 3px;
+			cursor: pointer;
+		}
+		:scope .btn[data-state="active"] {
+			background-image: url(../../images/pause.png);
 		}
 
 	script(type="coffee").
 
 		##
-		#  
+		# 再生・停止
 		##
-		@onPlay = ->
-			youtube.play()
+		@onPlay = (e) ->
+			state = e.target.getAttribute 'data-state'
+
+			if state is 'active'
+				e.target.setAttribute 'data-state', ''
+				youtube.pause()
+			else
+				e.target.setAttribute 'data-state', 'active'
+				youtube.play()
 
 		# mount ---------------------------------------------
 		@on 'mount', ->
