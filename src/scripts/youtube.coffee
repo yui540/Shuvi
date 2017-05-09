@@ -1,8 +1,12 @@
 class YouTube
 	constructor: ->
+		YouTube = require 'youtube-node'
+		@api    = new YouTube()
 		@timer  = null
 		@load   = false
 		@player = null
+
+		@api.setKey 'AIzaSyDNhc0Aof6i6Z49eps1aO6GpfSnuOvvT7M'
 
 	##
 	# iframe設置
@@ -12,17 +16,39 @@ class YouTube
 		width  = window.innerWidth
 		height = window.innerHeight
 
-		@player = new YT.Player 'player', {
-			width   : width
-			height  : height
-			videoId : id
-			events  : {
-				onReady: (e) =>
-					@load = true
-					observer.trigger 'load'
+		@getInfo id, (params) =>
+			if params is false
+				alert '動画IDが不正です。'
+				return
+
+			@player = new YT.Player 'player', {
+				width   : width
+				height  : height
+				videoId : id
+				events  : {
+					onReady: (e) =>
+						@load = true
+						observer.trigger 'load', params
+				}
 			}
-		}
-		@change id
+			@change id
+
+	##
+	# 動画の確認
+	# @param id : 動画ID
+	# @param fn : コールバック関数
+	##
+	getInfo: (id, fn) ->
+		@api.search id, 1, (err, result) =>
+			items = result.items
+
+			if not items.length
+				fn false
+
+			enty = items[0].snippet
+			fn 
+				title : enty.title
+				thumb : enty.thumbnails.default.url
 
 	##
 	# 動画の変更
