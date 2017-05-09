@@ -20,7 +20,7 @@ window.addEventListener 'load', ->
 		height : height
 
 	init()
-	youtube.set 'GtMCKw_7xyg'
+	youtube.set localStorage['id']
 
 # resize -------------------------------------------------------
 window.addEventListener 'resize', ->

@@ -1,7 +1,12 @@
 volume
+	div.icon1
 	div.volume
 		div.bar(style="width:{ bar }%")
-		div.picker(style="left:{ pic }px")
+		div.picker(
+			style="left:{ pic }px"
+			onmousedown="{ onMousedown }"
+		)
+	div.icon2
 
 	style(scoped).
 		:scope {
@@ -11,9 +16,21 @@ volume
 			height: 40px;
 			margin-left: 10px;
 		}
+		:scope .icon1,
+		:scope .icon2 {
+			float: left;
+			width: 20px;
+			height: 40px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 80% auto;
+		}
+		:scope .icon1 { background-image: url(../../images/volume_min.png); }
+		:scope .icon2 { background-image: url(../../images/volume_max.png); }
 		:scope .volume {
+			float: left;
 			position: relative;
-			width: 155px;
+			width: 115px;
 			height: 3px;
 			background-color: #4c4c4c;
 			margin-top: 18.5px;
@@ -30,7 +47,6 @@ volume
 			height: 15px;
 			border-radius: 50%;
 			background-color: #ccc;
-			transition: all 0.3s ease 0s;
 			cursor: pointer;
 		}
 		:scope .volume .picker:hover {
@@ -45,7 +61,7 @@ volume
 		@reload = ->
 			volume  = youtube.getVolume()
 			@bar    = volume
-			@pic    = 140 * (volume / 100)
+			@pic    = 100 * (volume / 100)
 			@update()
 
 		# load ----------------------------------------------
@@ -54,4 +70,33 @@ volume
 
 		# mount ---------------------------------------------
 		@on 'mount', ->
+
+		# mouse down ----------------------------------------
+		down = false
+		@onMousedown = (e) ->
+			down = true
+
+		# mouse move ----------------------------------------
+		window.addEventListener 'mousemove', (e) =>
+			if not down
+				return
+
+			left = @root.children[1].getBoundingClientRect().left
+			x    = e.clientX - left
+
+			if x < 0
+				x = 0
+			else if x > 100
+				x = 100
+
+			youtube.setVolume x
+			@reload()
+
+		# mouse up ------------------------------------------
+		window.addEventListener 'mouseup', (e) =>
+			down = false
+
+			
+
+
 

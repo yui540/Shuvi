@@ -3,7 +3,10 @@ seek
 	div.seek
 		div.load(style="width:{ load * 100 }%")
 		div.bar(style="width:{ bar * 100 }%")
-		div.picker(style="left:{ pic }px")
+		div.picker(
+			style="left:{ pic }px"
+			onmousedown="{ onMouseDown }"
+		)
 	div.duration { duration }
 
 	style(scoped).
@@ -59,7 +62,6 @@ seek
 			height: 20px;
 			background-color: #E27171;
 			border-radius: 2px;
-			transition: all 0.3s ease 0s;
 			cursor: pointer;
 		}
 		:scope .seek .picker:hover {
@@ -135,4 +137,31 @@ seek
 		# seek ----------------------------------------------
 		observer.on 'seek', =>
 			@reload()
+
+		# mouse down ----------------------------------------
+		down = false
+		@onMouseDown = (e) ->
+			down = true
+
+		# mouse move ----------------------------------------
+		window.addEventListener 'mousemove', (e) =>
+			if not down
+				return 
+
+			left = @root.children[1].getBoundingClientRect().left
+			x    = e.clientX - left
+
+			if x < 0
+				x = 0
+			else if x > 302
+				x = 302
+
+			@root.children[1].children[2].style.left  = x + 'px'
+			@root.children[1].children[1].style.width = (x / 302 * 100) + '%'
+			youtube.seek x / 302
+			@reload()
+
+		# mouse up ------------------------------------------
+		window.addEventListener 'mouseup', (e) =>
+			down = false
 

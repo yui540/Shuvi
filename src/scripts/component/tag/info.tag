@@ -1,4 +1,5 @@
 info
+	div.title(title="{ title }") { title }
 	div.art
 		div.line.line1: div
 		div.line.line2: div
@@ -24,12 +25,25 @@ info
 		:scope {
 			display: block;
 			float: left;
-			width: 195px;
+			width: 190px;
 			height: 40px;
 			margin-left: 10px;
 		}
+		:scope .title {
+			width: 190px;
+			height: 20px;
+			font-size: 10px;
+			color: #ccc;
+			line-height: 20px;
+			background-color: #444;
+			box-sizing: border-box;
+			padding: 0 5px;
+			border-radius: 2px;
+			overflow: hidden;
+		}
 		:scope .art {
-			width: 195px;
+			width: 190px;
+			height: 20px;
 		}
 		:scope .art:after {
 			content: "";
@@ -40,7 +54,7 @@ info
 			position: relative;
 			float: left;
 			width: 5px;
-			height: 40px;
+			height: 20px;
 			margin-right: 5px;
 		}
 		:scope .art .line div {
@@ -48,7 +62,7 @@ info
 			left: 0;
 			bottom: 0;
 			width: 5px;
-			height: 10px;
+			height: 2px;
 			background-color: #E27171;
 		}
 		:scope .art[data-state="active"] .line1 div { animation: art 2s ease 0s infinite; }
@@ -71,20 +85,27 @@ info
 		:scope .art[data-state="active"] .line18 div { animation: art 2s ease 5.4s infinite; }
 		:scope .art[data-state="active"] .line19 div { animation: art 2s ease 5.8s infinite; }
 		@keyframes art {
-			0%   { height: 10px; }
-			50%  { height: 40px; }
-			100% { height: 10px; }
+			0%   { height: 2px; }
+			50%  { height: 15px; }
+			100% { height: 2px; }
 		}
 
 	script(type="coffee").
 
+		# load ----------------------------------------------
+		observer.on 'load', (params) =>
+			@title = params.title
+			@update()
+
 		# play ----------------------------------------------
 		observer.on 'play', =>
-			@root.children[0].setAttribute 'data-state', 'active'
+			@root.children[1].setAttribute 'data-state', 'active'
 
 		# pause ----------------------------------------------
 		observer.on 'pause', =>
-			@root.children[0].setAttribute 'data-state', ''
+			@root.children[1].setAttribute 'data-state', ''
 
 		# mount ---------------------------------------------
 		@on 'mount', ->
+			@title = 'no_title'
+			@update()
