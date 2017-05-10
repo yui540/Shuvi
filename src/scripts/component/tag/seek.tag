@@ -1,6 +1,6 @@
 seek
 	div.current { current }
-	div.seek
+	div.seek(onclick="{ onSeek }")
 		div.load(style="width:{ load * 100 }%")
 		div.bar(style="width:{ bar * 100 }%")
 		div.picker(
@@ -136,6 +136,16 @@ seek
 
 		# seek ----------------------------------------------
 		observer.on 'seek', =>
+			@reload()
+
+		# on seek -------------------------------------------
+		@onSeek = (e) ->
+			left = @root.children[1].getBoundingClientRect().left
+			x    = e.clientX - left
+
+			@root.children[1].children[2].style.left  = x + 'px'
+			@root.children[1].children[1].style.width = (x / 302 * 100) + '%'
+			youtube.seek x / 302
 			@reload()
 
 		# mouse down ----------------------------------------

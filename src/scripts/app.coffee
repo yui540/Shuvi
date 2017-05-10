@@ -1,9 +1,10 @@
-top.load     = false
+top.ipc      = require('electron').ipcRenderer
 top.youtube  = require './youtube'
 top.riot     = require 'riot'
 top.observer = riot.observable()
 
 require './component/js/application'
+require './component/js/title-bar'
 require './component/js/controls'
 require './component/js/seek'
 require './component/js/play'
@@ -32,14 +33,6 @@ window.addEventListener 'resize', ->
 		height : height
 
 	youtube.resize width, height
-
-# player ready ------------------------------------------------
-top.onPlayerReady = (e) ->
-	
-
-# API ready ----------------------------------------------------
-top.onYouTubeIframeAPIReady = ->
-	top.load = true
 
 ##
 # 初期化

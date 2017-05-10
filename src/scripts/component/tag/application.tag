@@ -1,6 +1,7 @@
 application(
 	style="width:{ width }px;height:{ height }px"
 )
+	title-bar
 	controls(
 		width="{ width }"
 		height="{ height }"
