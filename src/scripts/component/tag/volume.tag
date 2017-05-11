@@ -13,14 +13,15 @@ volume
 			display: block;
 			float: left;
 			width: 155px;
-			height: 40px;
+			height: 20px;
 			margin-left: 10px;
+			margin-top: 5px;
 		}
 		:scope .icon1,
 		:scope .icon2 {
 			float: left;
 			width: 20px;
-			height: 40px;
+			height: 20px;
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: 80% auto;
@@ -33,7 +34,7 @@ volume
 			width: 115px;
 			height: 3px;
 			background-color: #4c4c4c;
-			margin-top: 18.5px;
+			margin-top: 7.5px;
 		}
 		:scope .volume .bar {
 			position: absolute;

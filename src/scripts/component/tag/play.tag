@@ -1,7 +1,6 @@
 play
 	div.btn(onclick="{ onPlay }")
 	info
-	volume
 
 	style(scoped).
 		:scope {

@@ -20,17 +20,18 @@ info
 		div.line.line17: div
 		div.line.line18: div
 		div.line.line19: div
+	volume
 
 	style(scoped).
 		:scope {
 			display: block;
 			float: left;
-			width: 190px;
+			width: 360px;
 			height: 40px;
 			margin-left: 10px;
 		}
 		:scope .title {
-			width: 190px;
+			width: 360px;
 			height: 20px;
 			font-size: 10px;
 			color: #ccc;
@@ -42,6 +43,7 @@ info
 			overflow: hidden;
 		}
 		:scope .art {
+			float: left;
 			width: 190px;
 			height: 20px;
 		}

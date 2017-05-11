@@ -10,6 +10,8 @@ require './component/js/seek'
 require './component/js/play'
 require './component/js/info'
 require './component/js/volume'
+require './component/js/overray'
+require './component/js/history'
 
 # load ---------------------------------------------------------
 window.addEventListener 'load', ->

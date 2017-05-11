@@ -40,6 +40,7 @@ seek
 			height: 5px;
 			background-color: #4c4c4c;
 			margin-top: 7.5px;
+			cursor: pointer;
 		}
 		:scope .seek .bar {
 			position: absolute;

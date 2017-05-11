@@ -16,9 +16,28 @@ controls(
 			border-radius: 5px;
 			box-sizing: border-box;
 			-webkit-app-region: no-drag;
+			opacity: 0;
+		}
+		:scope[data-state="active"] { animation: feedin 0.3s ease 0s forwards; }
+		:scope[data-state="passive"] { animation: feedout 0.3s ease 0s forwards; }
+		@keyframes feedin {
+			0%   { opacity: 0; }
+			100% { opacity: 1; }
+		}
+		@keyframes feedout {
+			0%   { opacity: 1; }
+			100% { opacity: 0; }
 		}
 
 	script(type="coffee").
+
+		# show ----------------------------------------------
+		observer.on 'show', =>
+			@root.setAttribute 'data-state', 'active'
+
+		# hidden --------------------------------------------
+		observer.on 'hidden', =>
+			@root.setAttribute 'data-state', 'passive'
 
 		# mount ---------------------------------------------
 		@on 'mount', ->

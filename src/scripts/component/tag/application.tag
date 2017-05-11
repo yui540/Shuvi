@@ -6,6 +6,11 @@ application(
 		width="{ width }"
 		height="{ height }"
 	)
+	overray
+	history(
+		width="{ width }"
+		height="{ height }"
+	)
 
 	style(scoped).
 		:scope {
@@ -28,3 +33,11 @@ application(
 			@width  = params.width
 			@height = params.height
 			@update()
+
+		# mouse over ----------------------------------------
+		window.addEventListener 'mouseover', (e) =>
+			observer.trigger 'show'
+
+		# mouse out -----------------------------------------
+		window.addEventListener 'mouseout',(e) =>
+			observer.trigger 'hidden'
