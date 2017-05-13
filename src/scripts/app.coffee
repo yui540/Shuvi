@@ -15,14 +15,14 @@ require './component/js/history'
 
 # load ---------------------------------------------------------
 window.addEventListener 'load', ->
+	init()
 	width  = window.innerWidth
 	height = window.innerHeight
 
-	riot.mount 'application', 
+	riot.mount '*', 
 		width  : width
 		height : height
 
-	init()
 	youtube.set localStorage['id']
 
 # resize -------------------------------------------------------
