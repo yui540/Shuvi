@@ -28,7 +28,9 @@ class YouTube
 				events  : {
 					onReady: (e) =>
 						@load = true
-						observer.trigger 'load', params
+						youtube.play()
+						observer.trigger 'play'
+						observer.trigger 'load'
 				}
 			}
 			@change id
@@ -39,16 +41,23 @@ class YouTube
 	# @param fn : コールバック関数
 	##
 	getInfo: (id, fn) ->
+		youtube.pause()
+		observer.trigger 'pause'
+
 		@api.search id, 1, (err, result) =>
 			items = result.items
 
 			if not items.length
 				fn false
 
-			enty = items[0].snippet
-			fn 
+			enty   = items[0].snippet
+			params = 
+				id    : id
 				title : enty.title
 				thumb : enty.thumbnails.default.url
+
+			observer.trigger 'preload', params
+			fn params
 
 	##
 	# 動画の変更
@@ -88,10 +97,18 @@ class YouTube
 	# 再生
 	##
 	play: ->
+		if not @load
+			return
+
 		@player.playVideo()
 		observer.trigger 'play'
 
 		@timer = setInterval =>
+			duration = @duration()
+			current  = @current()
+			if duration <= current
+				@seek 0
+
 			observer.trigger 'seek'
 		, 100
 
@@ -99,6 +116,9 @@ class YouTube
 	# 停止
 	##
 	pause: ->
+		if not @load
+			return
+		
 		@player.pauseVideo()
 		observer.trigger 'pause'
 

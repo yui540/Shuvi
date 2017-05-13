@@ -65,7 +65,7 @@ info
 			bottom: 0;
 			width: 5px;
 			height: 2px;
-			background-color: #E27171;
+			background-color: #c85399;
 		}
 		:scope .art[data-state="active"] .line1 div { animation: art 2s ease 0s infinite; }
 		:scope .art[data-state="active"] .line2 div { animation: art 2s ease 0.3s infinite; }
@@ -94,8 +94,8 @@ info
 
 	script(type="coffee").
 
-		# load ----------------------------------------------
-		observer.on 'load', (params) =>
+		# preload -------------------------------------------
+		observer.on 'preload', (params) =>
 			@title = params.title
 			@update()
 

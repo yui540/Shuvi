@@ -1,15 +1,15 @@
 {
   "name": "yui",
   "version": "0.0.1",
-  "description": "Electron製のYouTubeプレイヤー「結衣」",
+  "description": "Electron製のYouTubeプレイヤー「Shuvi」",
   "main": "src/bin/js/bin.js",
   "scripts": {
     "start": "electron .",
     "build": "gulp",
     "watch": "gulp watch",
-    "package:mac": "electron-packager . 結衣 --out=__release__ --platform=darwin --arch=x64 --icon=icons/icon.icns --overwrite",
-    "package:win": "electron-packager . 結衣 --out=__release__ --platform=win32 --arch=x64 --icon=icons/icon.ico --overwrite",
-    "package:linux": "electron-packager . 結衣 --out=__release__ --platform=linux --arch=x64 --icon=icons/icon.icns --overwrite"
+    "package:mac": "electron-packager . Shuvi --out=__release__ --platform=darwin --arch=x64 --icon=icons/icon.icns --overwrite",
+    "package:win": "electron-packager . Shuvi --out=__release__ --platform=win32 --arch=x64 --icon=icons/icon.ico --overwrite",
+    "package:linux": "electron-packager . Shuvi --out=__release__ --platform=linux --arch=x64 --icon=icons/icon.icns --overwrite"
   },
   "repository": {
     "type": "git",
@@ -17,15 +17,15 @@
   },
   "keywords": [
     "Electron",
-    "yui",
+    "Shuvi",
     "YouTube"
   ],
   "author": "yuki540",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yuki540net/yui/issues"
+    "url": "https://github.com/yuki540net/Shuvi/issues"
   },
-  "homepage": "https://github.com/yuki540net/yui#readme",
+  "homepage": "https://github.com/yuki540net/Shuvi#readme",
   "dependencies": {
     "coffee-script": "^1.12.5",
     "electron": "^1.6.6",

@@ -39,7 +39,7 @@ volume
 		:scope .volume .bar {
 			position: absolute;
 			height: 3px;
-			background-color: #E27171;
+			background-color: #c85399;
 		}
 		:scope .volume .picker {
 			position: absolute;

@@ -33,18 +33,30 @@ play
 
 	script(type="coffee").
 
-		##
-		# 再生・停止
-		##
+		@active = ->
+			@root.children[0].setAttribute 'data-state', 'active'
+
+		@passive = ->
+			@root.children[0].setAttribute 'data-state', ''
+
+		# play or pause -------------------------------------
 		@onPlay = (e) ->
 			state = e.target.getAttribute 'data-state'
 
 			if state is 'active'
-				e.target.setAttribute 'data-state', ''
+				@passive
 				youtube.pause()
 			else
-				e.target.setAttribute 'data-state', 'active'
+				@active
 				youtube.play()
+
+		# play ----------------------------------------------
+		observer.on 'play', =>
+			@active()
+
+		# puase ---------------------------------------------
+		observer.on 'pause', =>
+			@passive()
 
 		# mount ---------------------------------------------
 		@on 'mount', ->

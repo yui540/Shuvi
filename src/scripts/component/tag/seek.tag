@@ -47,7 +47,7 @@ seek
 			top: 0;
 			left: 0;
 			height: 5px;
-			background-color: #E27171;
+			background-color: #c85399;
 		}
 		:scope .seek .load {
 			position: absolute;
@@ -61,7 +61,7 @@ seek
 			top: -6.5px;
 			width: 8px;
 			height: 20px;
-			background-color: #E27171;
+			background-color: #c85399;
 			border-radius: 2px;
 			cursor: pointer;
 		}
