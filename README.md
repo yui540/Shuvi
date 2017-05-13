@@ -4,7 +4,7 @@
 ![shuvi](./__sample__/shuvi.png)
 
 - Shuviについての紹介ページ
-  - [Qiita - ]()
+  - [Qiita - ElectronでフレームレスなYouTubeプレイヤーを作ってみた](http://qiita.com/yuki540/items/af0f909b2256a9c80e6c)
 - Shuviのダウンロード
   - [GitHub - Releases](https://github.com/yuki540net/Shuvi/releases/tag/v0.0.1)
  - 開発者
