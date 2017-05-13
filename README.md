@@ -14,29 +14,29 @@
 
 ## シンプルさは究極の洗練である。 ---- Leonardo da Vinci
 
-#### Shuviの特徴は、設計そのもののシンプルさです。
+### Shuviの特徴は、設計そのもののシンプルさです。
 
-#### MacのQuickTime PlayerのようなUIに、フレームレスなウィンドウを兼ね添えています。
+### MacのQuickTime PlayerのようなUIに、フレームレスなウィンドウを兼ね添えています。
 
 ![top](./__sample__/top.png)
 
-#### Shuviは、大きさや形にとらわれません。
+### Shuviは、大きさや形にとらわれません。
 
-#### いつでも作業スペースにあった形・大きさにリサイズすることができます。
+### いつでも作業スペースにあった形・大きさにリサイズすることができます。
 
 ![transform](./__sample__/transform.png)
 
 ![scale](./__sample__/scale.png)
 
-#### 動画の再生は、YouTubeの動画URLを貼り付けるだけで行うことができます。
+### 動画の再生は、YouTubeの動画URLを貼り付けるだけで行うことができます。
 
 ![search](./__sample__/search.png)
 
-#### 過去の見た動画を再度URLを入力することなく、再生することができます。
+### 過去の見た動画を再度URLを入力することなく、再生することができます。
 
 ![list](./__sample__/list.png)
 
-#### ---- Let's the game begin.
+### ---- Let's the game begin.
 
 ## Lisence
 
