@@ -37,5 +37,5 @@ To play a recently watched video, you don't need to enter the URL again.
 
 ### ---- Start a comfortable video life, with Shuivi.
 
-## Lisence
-This software is published under MIT Lisence.
+## Lisense
+This software is published under MIT Lisense.
