@@ -1,3 +1,5 @@
+api_config = require('../config/api.json')
+
 class YouTube
 	constructor: ->
 		YouTube = require 'youtube-node'
@@ -6,7 +8,7 @@ class YouTube
 		@load   = false
 		@player = null
 
-		@api.setKey 'AIzaSyDNhc0Aof6i6Z49eps1aO6GpfSnuOvvT7M'
+		@api.setKey api_config.apikey
 
 	##
 	# iframe設置

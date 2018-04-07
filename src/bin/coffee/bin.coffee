@@ -6,7 +6,6 @@ app      = electron.app
 Browser  = electron.BrowserWindow
 Menu     = electron.Menu
 ipc      = electron.ipcMain
-www      = express()
 
 #config
 html          = '../../views/html/player.html'
@@ -68,19 +67,3 @@ app.on 'window-all-closed', ->
 # close -----------------------------------------------------------
 ipc.on 'close', ->
 	app.quit()
-
-###################################################################
-#
-# API Server
-#
-###################################################################
-server = www.listen 8080, ->
-	console.log ''
-	console.log '################################################################'
-	console.log ''
-	console.log ' starting WEB SERVER on localhost:' + server.address().port
-	console.log '   AUTHOR:     yuki540'
-	console.log '   REPOSITORY: https://github.com/yuki540net/yui'
-	console.log ''
-	console.log '################################################################'
-	console.log ''
