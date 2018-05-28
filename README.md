@@ -6,11 +6,11 @@
 - Shuviについての紹介ページ
   - [Qiita - ElectronでフレームレスなYouTubeプレイヤーを作ってみた](http://qiita.com/yuki540/items/af0f909b2256a9c80e6c)
 - Shuviのダウンロード
-  - [GitHub - Releases](https://github.com/yuki540net/Shuvi/releases/tag/v0.0.1)
+  - [GitHub - Releases](https://github.com/yui540/Shuvi/releases/tag/v0.0.1)
  - 開発者
-   - yuki540
-   - [Twitter - @eriri_jp](https://twitter.com/eriri_jp)
-   - [HP - yuki540.com](http://yuki540.com)
+   - yui540
+   - [Twitter - @yui540](https://twitter.com/yui540)
+   - [HP - magical-girl.site](https://magical-girl.site/)
 
 ## シンプルさは究極の洗練である。 ---- Leonardo da Vinci
 
