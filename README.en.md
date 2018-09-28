@@ -8,9 +8,9 @@ Shuvi is frameless YouTube player powered by Electron.
 - Download Shuvi
   - [GitHub - Releases](https://github.com/yuki540net/Shuvi/releases/tag/v0.0.1)
 - Developer
-  - yuki540
-  - [Twitter - @eriri_jp](https://twitter.com/eriri_jp)
-  - [HP - yuki540.com](http://yuki540.com)
+  - yui540
+  - [Twitter - @yui540](https://twitter.com/yui540)
+  - [HP - magical-girl.site](https://magical-girl.site/)
 
 ## Simplicity is the ultimate sophistication. ---- Leonardo da Vinci
 Shuvi's feature is the simplicity of the design itself.
