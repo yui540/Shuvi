@@ -1,4 +1,5 @@
 # Shuvi - シュヴィ
+
 「Shuvi」は、Electron製のフレームレスなYouTubeプレイヤーです。
 
 ![shuvi](./__sample__/shuvi.png)
@@ -7,10 +8,10 @@
   - [Qiita - ElectronでフレームレスなYouTubeプレイヤーを作ってみた](http://qiita.com/yuki540/items/af0f909b2256a9c80e6c)
 - Shuviのダウンロード
   - [GitHub - Releases](https://github.com/yui540/Shuvi/releases/tag/v0.0.1)
- - 開発者
-   - yui540
-   - [Twitter - @yui540](https://twitter.com/yui540)
-   - [HP - magical-girl.site](https://magical-girl.site/)
+- 開発者
+  - yui540
+  - [Twitter - @yui540](https://twitter.com/yui540)
+  - [HP - magical-girl.site](https://magical-girl.site/)
 
 ## シンプルさは究極の洗練である。 ---- Leonardo da Vinci
 

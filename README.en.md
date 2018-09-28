@@ -1,4 +1,5 @@
 # Shuvi - シュヴィ
+
 Shuvi is frameless YouTube player powered by Electron.
 
 ![shuvi](./__sample__/shuvi.png)
@@ -13,6 +14,7 @@ Shuvi is frameless YouTube player powered by Electron.
   - [HP - magical-girl.site](https://magical-girl.site/)
 
 ## Simplicity is the ultimate sophistication. ---- Leonardo da Vinci
+
 Shuvi's feature is the simplicity of the design itself.
 
 The frameless window is featured with a Mac's QuickTime Player-like UI.
@@ -38,4 +40,5 @@ To play a recently watched video, you don't need to enter the URL again.
 ### ---- Start a comfortable video life, with Shuivi.
 
 ## Lisense
+
 This software is published under MIT Lisense.
